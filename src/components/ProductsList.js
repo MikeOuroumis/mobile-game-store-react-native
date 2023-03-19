@@ -10,16 +10,16 @@ import image9 from "../assets/games-images/main-qimg-ddeb6287c6851b42320199977f0
 import image10 from "../assets/games-images/main-qimg-f9464db7ff6b1d8e901c8a98a59b65d3-c.jpeg";
 
 const products = [
-  { id: 1, image: image1, price: "150" },
-  { id: 2, image: image2, price: "200" },
-  { id: 3, image: image3, price: "300" },
-  { id: 4, image: image4, price: "120" },
-  { id: 5, image: image5, price: "50" },
-  { id: 6, image: image6, price: "250" },
-  { id: 7, image: image7, price: "100" },
-  { id: 8, image: image8, price: "100" },
-  { id: 9, image: image9, price: "300" },
-  { id: 10, image: image10, price: "170" },
+  { id: 1, image: image1, creditsPrice: null, currencyPrice: "200" },
+  { id: 2, image: image2, creditsPrice: "200", currencyPrice: null },
+  { id: 3, image: image3, creditsPrice: "300", currencyPrice: null },
+  { id: 4, image: image4, creditsPrice: null, currencyPrice: "160" },
+  { id: 5, image: image5, creditsPrice: "50", currencyPrice: null },
+  { id: 6, image: image6, creditsPrice: "250", currencyPrice: null },
+  { id: 7, image: image7, creditsPrice: "100", currencyPrice: null },
+  { id: 8, image: image8, creditsPrice: null, currencyPrice: "200" },
+  { id: 9, image: image9, creditsPrice: "300", currencyPrice: null },
+  { id: 10, image: image10, creditsPrice: null, currencyPrice: "100" },
 ];
 
 export default products;

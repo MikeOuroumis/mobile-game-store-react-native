@@ -2,52 +2,90 @@ import { useRef, useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, Animated, Alert } from "react-native";
 import Button from "./Button";
 import { useAppSelector, useAppDispatch } from "../store/store";
-import { setCredits } from "../store/slices/creditsSlice";
+import { setCredits, setCurrency } from "../store/slices/creditsSlice";
 import { addPurchasedProduct } from "../store/slices/productsSlice";
 import creditImage from "../assets/credits.png";
+import currencyImage from "../assets/bitcoin.png";
 import PurchasedLabel from "./PurchasedLabal";
 
-export default function Product({ image, price, id, purchased }) {
+export default function Product({
+  image,
+  creditsPrice,
+  id,
+  purchased,
+  currencyPrice,
+}) {
   const dispatch = useAppDispatch();
   const productAnimation = useRef(new Animated.Value(0)).current;
   const credits = useAppSelector((state) => state.creditsSlice.credits);
+  const currency = useAppSelector((state) => state.creditsSlice.currency);
   const [isPurchased, setIsPurchased] = useState(purchased);
 
   function handlePress() {
     if (isPurchased) {
       Alert.alert("You have already purchased this product");
-    } else if (price > credits) {
-      Alert.alert("You don't have enough credits");
-    } else {
-      Alert.alert(
-        "Confirmation",
-        "Are you sure you want to purchase this product?",
-        [
+    }
+    if (currencyPrice) {
+      if (currency < currencyPrice) {
+        Alert.alert("You don't have enough premium currency");
+      } else {
+        Alert.alert(
+          "Confirmation",
+          "Are you sure you want to purchase this product?",
+          [
+            {
+              text: "Yes",
+              onPress: handlePurchaseWithCurrency,
+            },
+            {
+              text: "No",
+            },
+          ],
           {
-            text: "No",
-            style: "cancel",
-          },
+            cancelable: false,
+          }
+        );
+      }
+    }
+    if (creditsPrice) {
+      if (credits < creditsPrice) {
+        Alert.alert("You don't have enough credits");
+      } else {
+        Alert.alert(
+          "Confirmation",
+          "Are you sure you want to purchase this product?",
+          [
+            {
+              text: "Yes",
+              onPress: handlePurchaseWithCredits,
+            },
+            {
+              text: "No",
+              style: "cancel",
+            },
+          ],
           {
-            text: "Yes",
-            onPress: handlePurchase,
-          },
-        ],
-        {
-          cancelable: false,
-        }
-      );
+            cancelable: false,
+          }
+        );
+      }
     }
   }
 
-  function handlePurchase() {
-    if (!isPurchased && credits >= price) {
-      dispatch(setCredits(credits - price));
-      dispatch(addPurchasedProduct({ id, image, price, purchased: true }));
-      setIsPurchased(true);
-      Alert.alert("You bought the product");
-    } else {
-      Alert.alert("You don't have enough credits");
-    }
+  function handlePurchaseWithCredits() {
+    dispatch(setCredits(credits - creditsPrice));
+    dispatch(addPurchasedProduct({ id, image, creditsPrice, purchased: true }));
+    setIsPurchased(true);
+    Alert.alert(`You bought the product with credits`);
+  }
+
+  function handlePurchaseWithCurrency() {
+    dispatch(setCurrency(currency - currencyPrice));
+    dispatch(
+      addPurchasedProduct({ id, image, currencyPrice, purchased: true })
+    );
+    setIsPurchased(true);
+    Alert.alert(`You bought the product with currency`);
   }
 
   useEffect(() => {
@@ -62,10 +100,18 @@ export default function Product({ image, price, id, purchased }) {
     <Animated.View style={{ opacity: productAnimation }}>
       <View style={styles.container}>
         <Image source={image} style={styles.image} />
-        <View style={styles.priceContainer}>
-          <Text style={styles.price}>{price}</Text>
-          <Image source={creditImage} style={styles.creditsImage} />
-        </View>
+        {creditsPrice && (
+          <View style={styles.priceContainer}>
+            <Text style={styles.price}>{creditsPrice}</Text>
+            <Image source={creditImage} style={styles.creditsImage} />
+          </View>
+        )}
+        {currencyPrice && (
+          <View style={styles.priceContainer}>
+            <Text style={styles.price}>{currencyPrice}</Text>
+            <Image source={currencyImage} style={styles.creditsImage} />
+          </View>
+        )}
         {isPurchased ? (
           <PurchasedLabel />
         ) : (

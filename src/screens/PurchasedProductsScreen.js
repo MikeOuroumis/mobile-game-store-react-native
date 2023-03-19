@@ -58,7 +58,7 @@ export function PurchasedProductsScreen() {
             <Product
               key={product.id}
               image={product.image}
-              price={product.price}
+              creditsPrice={product.creditsPrice}
               purchased={product.purchased}
             />
           ))

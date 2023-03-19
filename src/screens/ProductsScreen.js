@@ -20,7 +20,8 @@ export function ProductsScreen() {
               key={product.id}
               id={product.id}
               image={product.image}
-              price={product.price}
+              creditsPrice={product.creditsPrice}
+              currencyPrice={product.currencyPrice}
             />
           ))}
         </ScrollView>

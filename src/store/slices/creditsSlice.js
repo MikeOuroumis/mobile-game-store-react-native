@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  credits: 1000,
+  credits: 500,
   currency: 300,
 };
 
