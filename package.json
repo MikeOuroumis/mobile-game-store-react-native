@@ -1,0 +1,30 @@
+{
+  "name": "mobile-game-store-react-native",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@react-navigation/bottom-tabs": "^6.5.7",
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.9.12",
+    "@react-navigation/stack": "^6.3.16",
+    "@reduxjs/toolkit": "^1.9.3",
+    "expo": "~48.0.6",
+    "expo-linear-gradient": "^12.1.2",
+    "expo-status-bar": "~1.4.4",
+    "link": "^1.5.1",
+    "react": "18.2.0",
+    "react-native": "^0.71.3",
+    "react-native-linear-gradient": "^2.6.2",
+    "react-redux": "^8.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
