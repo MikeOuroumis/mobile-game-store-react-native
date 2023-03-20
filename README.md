@@ -28,7 +28,8 @@ for Android. It uses the following tech stack:
 
 To run the app on an emulator of Android Studio, you have to follow some steps first.
 
-The following link provides a series of steps of how to setup a virtual device and run the application on it.
+The following link provides a series of steps for how to setup a virtual device and run the application on it.
+
 https://javascript.plainenglish.io/react-native-running-expo-apps-on-an-android-emulator-33baebb89050
 
 ## If I had more time
