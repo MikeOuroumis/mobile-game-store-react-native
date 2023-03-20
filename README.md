@@ -1,4 +1,4 @@
-**Game Store Application**
+# Mobile Game Store Application
 
 This project was created using Expo for simplicity reasons and runs specifically
 for Android. It uses the following tech stack:
@@ -8,7 +8,7 @@ for Android. It uses the following tech stack:
 - expo-linear-gradient
 - Animated library from react-native
 
-**_How to run the project_**
+## How to run the project
 
 1. Go to the root folder of the project in your terminal and run `npm install`
    to install all the dependencies of the project (node required to be installed
@@ -22,7 +22,16 @@ for Android. It uses the following tech stack:
    your terminal and press 'a'. To run it on a physical device, scan the QR code
    in the terminal from 'Expo Go'
 
-**_If I had more time_**
+## Notes
+
+**Running the app on emulator**
+
+To run the app on an emulator of Android Studio, you have to follow some steps first.
+
+The following link provides a series of steps of how to setup a virtual device and run the application on it.
+https://javascript.plainenglish.io/react-native-running-expo-apps-on-an-android-emulator-33baebb89050
+
+## If I had more time
 
 - I would use Typescript
 - I would implement the functionallity for the premium currency
