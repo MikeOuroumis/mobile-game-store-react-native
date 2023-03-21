@@ -35,7 +35,7 @@ https://javascript.plainenglish.io/react-native-running-expo-apps-on-an-android-
 ## If I had more time
 
 - I would use Typescript
-- I would implement the functionallity for the premium currency
-- I would write better and more maintainable code than this one
+- I would write some tests
+- I would write better and more maintainable code
 
 That's it! I hope you like it!
