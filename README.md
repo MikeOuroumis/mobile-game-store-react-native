@@ -1,5 +1,8 @@
 # Mobile Game Store Application
 
+![Demo](https://github.com/MikeOuroumis/mobile-game-store-react-native/blob/master/src/assets/ezgif.com-resize.gif)
+
+
 This project was created using Expo for simplicity reasons and runs specifically
 for Android. It uses the following tech stack:
 
